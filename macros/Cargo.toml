@@ -1,0 +1,31 @@
+# Cargo.toml specifies your Rust crate's metadata
+#
+# There are several options available to you for customizing your package
+# and providing supplementary metadata. They are documented in the Manifest
+# page of the Cargo reference:
+#
+#   https://doc.rust-lang.org/cargo/reference/manifest.html
+#
+# A particularly important key is [workspace]. As your project grows, you may
+# wish to refactor it into multiple crates. Workspaces are the mechanism for
+# doing so. They are also documented in the reference:
+#
+#  https://doc.rust-lang.org/cargo/reference/workspaces.html
+#
+
+[package]
+name = "eventwinnower-macros"
+edition = "2021"
+version = "0.1.0"
+
+publish = false
+
+exclude = ['/build', '/Config', '/build-tools/']
+
+[lib]
+proc-macro = true
+path="src/lib.rs"
+
+[dependencies]
+quote = "1.0.37"
+syn = "2.0.90"

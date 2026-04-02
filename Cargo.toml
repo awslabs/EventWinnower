@@ -1,0 +1,85 @@
+# Cargo.toml specifies your Rust crate's metadata
+#
+# There are several options available to you for customizing your package
+# and providing supplementary metadata. They are documented in the Manifest
+# page of the Cargo reference:
+#
+#   https://doc.rust-lang.org/cargo/reference/manifest.html
+#
+# A particularly important key is [workspace]. As your project grows, you may
+# wish to refactor it into multiple crates. Workspaces are the mechanism for
+# doing so. They are also documented in the reference:
+#
+#  https://doc.rust-lang.org/cargo/reference/workspaces.html
+#
+
+[package]
+name = "eventwinnower"
+edition = "2021"
+
+version = "0.1.0"
+license = "MIT"
+
+publish = false
+
+exclude = ['/build', '/Config', '/build-tools/']
+
+[lib]
+path="src/lib.rs"
+
+[[bin]]
+name = "eventwinnower"
+path = "src/bin/main.rs"
+
+[[bin]]
+name = "bootstrap"
+path = "src/bin/lambda.rs"
+
+[dependencies]
+clap = {version = "4.5.4", features = ["derive"] }
+logos = "0.16.1"
+serde_json = "1.0.117"
+anyhow = "1.0"
+jmespath = "0.5.0"
+lazy_static = "1.5.0"
+aws-config = "1.5.15"
+aws-sdk-s3 = "1.71.0"
+aws-sdk-dynamodb = "1.68.0"
+tokio = {version = "1.43.0", features = ["full", "io-util"] }
+flate2 = "1.0.35"
+mockall = "0.14.0"
+lru = "0.16.3"
+chrono = "0.4.39"
+aho-corasick = "1.1.3"
+ctrlc = {version = "3.4.5", features = ["termination"]}
+csv = "1.3.1"
+rand = "0.10.0"
+rand_distr = "0.6.0"
+aws-sdk-sqs = "1.63.0"
+aws-sdk-kinesis = "1.67.0"
+aws-sdk-firehose = "1.72.0"
+aws-sdk-bedrockruntime = "1.85.0"
+aws-sdk-athena = "1.69.0"
+aws-smithy-async = "1.2.5"
+aws-sdk-sns = "1.66.0"
+lambda_runtime = "1.1.1"
+eventwinnower-macros = { path = "macros" }
+zstd = "0.13.0"
+data-encoding = "2.5.0"
+regex = "1.10.0"
+hex = "0.4.3"
+crossbeam-channel = "0.5.15"
+async-compression = {version = "0.4.30", features = ["tokio", "gzip", "zstd"]}
+ordered-float = "5.1.0"
+futures = "0.3.31"
+csv-async = {version = "1.3.1", features = ["tokio"]}
+tokio-stream = "0.1.17"
+urlencoding = "2.1.3"
+async-trait = "0.1.89"
+async-recursion = "1.1.1"
+
+[dev-dependencies]
+shlex = "1.3.0"
+aws-smithy-runtime-api = "1.10.0"
+proptest = "1.4.0"
+tempfile = "3"

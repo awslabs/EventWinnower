@@ -407,6 +407,3 @@ When your processor code is ready to integrate, you will need to modify /src/pro
 2. Add tests for new processors, make sure tests compile without errors or warnings
 4. Ensure all builds pass: `cargo build --release`
 
-## License
-
-Internal Amazon use only. See package configuration for details.

@@ -28,6 +28,7 @@ mod join;
 mod keycorrelate;
 mod keycount;
 mod keycounttotal;
+mod keygen;
 mod keypercentile;
 mod kinesis;
 mod kvmap;
@@ -78,6 +79,7 @@ use crate::processors::join::*;
 use crate::processors::keycorrelate::*;
 use crate::processors::keycount::*;
 use crate::processors::keycounttotal::*;
+use crate::processors::keygen::*;
 use crate::processors::keypercentile::*;
 use crate::processors::kinesis::*;
 use crate::processors::kvmap::*;
@@ -135,6 +137,8 @@ lazy_static! {
         // Input/output processors
         m.insert("gen".to_string(), GenInputProcessorInit::new());
         m.insert("generate".to_string(), GenInputProcessorInit::new());
+        m.insert("keygen".to_string(), KeyGenProcessorInit::new());
+        m.insert("key_gen".to_string(), KeyGenProcessorInit::new());
         m.insert("csv".to_string(), CsvInputProcessorInit::new());
         m.insert("s3buffer".to_string(), S3BufferProcessorInit::new());
 
